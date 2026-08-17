@@ -97,7 +97,7 @@ before granting access to the dashboard.<p>
 <div>
 <h1> View Teachers  </h1>    
 <p>This page allows you to view teacher records and edit their details.<p>    
-<img src="10.png" alt="Student Management System" >
+<img src="9.png" alt="Student Management System" >
 </div>
 
 <div>
