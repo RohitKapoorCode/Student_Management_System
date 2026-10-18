@@ -4,11 +4,11 @@ A role-based school management web application built with **Laravel 12** and **M
 
 **Live Demo:** https://student-management-system-o8jt.onrender.com/
 
-Admin login
-Email Id : sunrisepublicschool01@gmail.com
-Password : 12345678
+Admin login Details
 
-> Note: the app is hosted on a free Render instance, so the first load may take 30-60 seconds to wake up.
+Email Id : sunrisepublicschool01@gmail.com
+
+Password : 12345678
 
 ---
 
