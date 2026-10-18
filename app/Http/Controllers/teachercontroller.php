@@ -96,7 +96,7 @@ class teachercontroller extends Controller
     public function storeLogin(Request $request)
     {
         $request->validate([
-            'teacher_id' => 'required|exists:teachers,id',
+            'teacher_id' => 'required|exists:teacher,id',
             'password'   => 'required|min:8',
         ]);
 
