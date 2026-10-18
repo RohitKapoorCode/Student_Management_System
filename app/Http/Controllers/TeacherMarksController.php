@@ -44,12 +44,13 @@ class TeacherMarksController extends Controller
     }
 
     // Marks save / update
-    public function store(Request $request, Student $student)
+   public function store(Request $request, Student $student)
 {
     $data = $request->validate([
-        'exam'      => ['required', 'string'],
-        'max_marks' => ['required', 'numeric'],
+        'exam'      => ['required', Rule::in(self::EXAMS)],
+        'max_marks' => ['required', 'integer', 'min:1'],
         'marks'     => ['required', 'array'],
+        'marks.*'   => ['nullable', 'integer', 'min:0', 'lte:max_marks'],
     ]);
 
     foreach ($data['marks'] as $subject => $value) {
@@ -57,11 +58,15 @@ class TeacherMarksController extends Controller
             continue;
         }
 
-        \App\Models\Mark::updateOrCreate(
+        if (!in_array($subject, self::SUBJECTS, true)) {
+            continue;
+        }
+
+        Mark::updateOrCreate(
             [
-                'student_id' => $student->id, 
-                'exam'       => $data['exam'], 
-                'subject'    => $subject
+                'student_id' => $student->id,
+                'exam'       => $data['exam'],
+                'subject'    => $subject,
             ],
             [
                 'max_marks'  => $data['max_marks'],
@@ -71,6 +76,7 @@ class TeacherMarksController extends Controller
         );
     }
 
-    return redirect()->route('teacher.dashboard')->with('success', 'Marks successfully save ho gaye hain!');
+    return redirect()->route('teacher.dashboard')
+        ->with('success', 'Marks successfully save ho gaye hain!');
 }
-}
+};

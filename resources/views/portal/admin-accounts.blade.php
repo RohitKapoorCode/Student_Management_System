@@ -35,7 +35,7 @@
                         </select>
                         <input type="password" name="password" class="form-control mb-2" placeholder="Password (min 8)" required>
                         <div class="form-text mb-2">The login email will be the same as the one in the student's record. Please provide this email and password to the student.</div>
-                        <button type="submit" class="btn-main"><i class="bi bi-key me-1"></i> Student login banayein</button>
+                        <button type="submit" class="btn-main"><i class="bi bi-key me-1"></i> Create a student login</button>
                     </form>
                 @endif
 
@@ -55,7 +55,7 @@
                         </form>
                     </td>
                     <td class="text-end">
-                        <form method="POST" action="{{ route('admin.studentlogins.destroy', $s->login_user_id) }}" onsubmit="return confirm('Is student ka login hata dein?')">
+                        <form method="POST" action="{{ route('admin.studentlogins.destroy', $s->login_user_id) }}" onsubmit="return confirm('Remove this students login.?')">
                             @csrf @method('DELETE')
                             <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
                         </form>
@@ -91,7 +91,7 @@
                     </select>
                     <input type="password" name="password" class="form-control mb-2" placeholder="Password (min 8)" required>
                     <div class="form-text mb-2">The login email will be the same as the one in the teacher's record. Please provide this email and password to the teacher.</div>
-                    <button type="submit" class="btn-main"><i class="bi bi-key me-1"></i> Teacher login banayein</button>
+                    <button type="submit" class="btn-main"><i class="bi bi-key me-1"></i> Create a teacher login</button>
                 </form>
             @endif
 
