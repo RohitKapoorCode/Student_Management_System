@@ -156,7 +156,7 @@
 
     <div class="form-side">
         <h2>Login</h2>
-        <p class="sub">Teacher account se login karein.</p>
+        <p class="sub">Log in using the teacher account.</p>
 
         <form method="POST" action="{{ route('teacherlogin') }}">
             @csrf
