@@ -180,7 +180,7 @@
             <div class="row-between">
                 <label class="remember" for="remember">
                     <input type="checkbox" name="remember" id="remember" required>
-                    Terms & Conditions
+                    Remember me
                 </label>
                  @if (Route::has('password.request'))
                     <a class="forgot" href="#">Forgot your password?</a>
