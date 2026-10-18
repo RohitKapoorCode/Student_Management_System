@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Teacher;
 
 class studentcontroller extends Controller
 {
@@ -11,25 +12,25 @@ class studentcontroller extends Controller
     public function student()
 {
     // Total Students
-    $totalStudent = \App\Models\student::count();
+    $totalStudent = Student::count();
 
     // Active Students
-    $activeStudent = \App\Models\student::count();
+    $activeStudent = Student::count();
 
     // New Admissions This Month
-    $newAdmission = \App\Models\student::whereMonth('created_at', now()->month)
+    $newAdmission = Student::whereMonth('created_at', now()->month)
         ->whereYear('created_at', now()->year)
         ->count();
 
     // Total Fees Paid
-    $totalFees = \App\Models\student::whereIn('paymentstatus', ['Paid', 'paid', '1'])
+    $totalFees = Student::whereIn('paymentstatus', ['Paid', 'paid', '1'])
         ->sum('totalfees');
 
     // Total Teachers
-    $totalTeacher = \App\Models\teacher::count();
+    $totalTeacher = Teacher::count();
 
     // Student Records
-    $student = \App\Models\student::latest()->get();
+    $student = Student::latest()->get();
 
     return view('Student.student', compact(
         'totalStudent',
