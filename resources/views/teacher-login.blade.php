@@ -177,15 +177,15 @@
                 </button>
             </div>
 
-            <!-- <div class="row-between">
+            <div class="row-between">
                 <label class="remember" for="remember">
                     <input type="checkbox" name="remember" id="remember">
                     Remember me
                 </label>
                 @if (Route::has('password.request'))
-                    <a class="forgot" href="{{ route('password.request') }}">Forgot your password?</a>
+                    <a class="forgot" href="#">Forgot your password?</a>
                 @endif
-            </div> -->
+            </div>
 
             <button type="submit" class="btn-submit">Log in</button>
             @if(Route::has('teacherregister'))
